@@ -1,0 +1,98 @@
+main{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.formstyle{
+	font: 95% Arial, Helvetica, sans-serif;
+	max-width: 400px;
+	margin: 10px auto;
+	padding: 16px;
+	background: #F7F7F7;
+  font-family :Verdana, Geneva, Tahoma, sans-serif;
+}
+.formstyle h1{
+	background: #8ef7f7;
+	padding: 20px 0;
+	font-size: 140%;
+	font-weight: 300;
+	text-align: center;
+	color: #fff;
+	margin: -16px -16px 16px -16px;
+}
+.formstyle input[type="text"],
+.formstyle textarea,
+.formstyle select 
+{
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: #555;
+	font: 95% Arial, Helvetica, sans-serif;
+}
+.formstyle input[type="text"]:focus,
+.formstyle textarea:focus,
+.formstyle select:focus
+{
+	box-shadow: 0 0 5px #8ef7f7;
+	padding: 3%;
+	border: 1px solid #2dacf5;
+}
+
+.formstyle input[type="password"],
+.formstyle textarea,
+.formstyle select 
+{
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: #555;
+	font: 95% Arial, Helvetica, sans-serif;
+}
+.formstyle input[type="password"]:focus,
+.formstyle textarea:focus,
+.formstyle select:focus
+{
+	box-shadow: 0 0 5px #8ef7f7;
+	padding: 3%;
+	border: 1px solid #2dacf5;
+}
+
+.formstyle input[type="submit"],
+.formstyle input[type="button"]{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 3%;
+	background: #8ef7f7;
+	border-bottom: 2px solid #8ef7f7;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;	
+	color: #fff;
+	font-size: 90%;
+}
+.formstyle input[type="submit"]:hover,
+.formstyle input[type="button"]:hover{
+	background: #8ef7f7;
+}
