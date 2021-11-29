@@ -9,7 +9,7 @@ header{
 }
 
 .connect{
-    width: 10%;
+    width: 20%;
     display: flex;      
     justify-content: flex-end;
 }       
@@ -27,11 +27,10 @@ main{
     justify-content: center;
 }
 
-#text-img{  
+#com{  
     margin-top: -4%;
     text-align: center;
     font-size: large;
-    
 }
 
 .profil{

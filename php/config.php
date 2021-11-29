@@ -1,7 +1,7 @@
 <?php 
     
     $host = 'localhost';
-    $dbname = 'moduleconnexion';
+    $dbname = 'livreor';
     $login = 'root';
     $password = 'root';
 

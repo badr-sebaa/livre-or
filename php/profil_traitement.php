@@ -13,11 +13,9 @@
     }
 
 // Si les variables existent 
-if(!empty($_POST['login']) && !empty($_POST['firstname']) && !empty($_POST['name']) && !empty($_POST['password']) && !empty($_POST['newpassword']) && !empty($_POST['verify'])){
+if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['newpassword']) && !empty($_POST['verify'])){
     // XSS 
     $new_login = htmlspecialchars($_POST['login']);
-    $new_firstname = htmlspecialchars($_POST['firstname']);
-    $new_name = htmlspecialchars($_POST['name']);
     $current_password = htmlspecialchars($_POST['password']);
     $new_password = htmlspecialchars($_POST['newpassword']);
     $new_password_retype = htmlspecialchars($_POST['verify']);
@@ -40,11 +38,9 @@ if(!empty($_POST['login']) && !empty($_POST['firstname']) && !empty($_POST['name
               $cost = ['cost' => 12];
               $new_password = password_hash($new_password, PASSWORD_BCRYPT, $cost);
               // On met à jour la table utiisateurs
-              $update = $bdd->prepare('UPDATE utilisateurs SET login = :login,prenom = :prenom ,nom = :nom,password = :password WHERE id = :id');
+              $update = $bdd->prepare('UPDATE utilisateurs SET login = :login,password = :password WHERE id = :id');
               $update->execute(array(
                   "login" => $new_login,
-                  "prenom" => $new_firstname,
-                  "nom" => $new_name,
                   "password" => $new_password,
                   "id" => $_SESSION['user']
               ));

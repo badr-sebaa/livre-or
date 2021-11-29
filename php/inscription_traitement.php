@@ -3,13 +3,11 @@
 require_once 'config.php'; // On inclu la connexion à la bdd
 
 // Si les variables existent et qu'elles ne sont pas vides
-if(!empty($_POST['login']) && !empty($_POST['firstname']) && !empty($_POST['name']) && !empty($_POST['password']) && !empty($_POST['verify']))
+if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['verify']))
 {
 
     // je crée des variable pour chaque donné 
     $login = htmlspecialchars($_POST['login']);
-    $firstname = htmlspecialchars($_POST['firstname']);
-    $name = htmlspecialchars($_POST['name']);
     $password = htmlspecialchars($_POST['password']);
     $verify = htmlspecialchars($_POST['verify']);
 
@@ -20,7 +18,7 @@ if(!empty($_POST['login']) && !empty($_POST['firstname']) && !empty($_POST['name
      $row = $check->rowCount();
 
     if($row == 0){ 
-        if(strlen($pseudo) <= 100){ // On verifie que la longueur du pseudo <= 100
+        if(strlen($login) <= 100){ // On verifie que la longueur du pseudo <= 100
             if($password === $verify){ // si les deux mdp saisis sont bon
                           // On hash le mot de passe avec Bcrypt, via un coût de 12
                           $cost = ['cost' => 12];
@@ -28,11 +26,9 @@ if(!empty($_POST['login']) && !empty($_POST['firstname']) && !empty($_POST['name
 
 
                           // On insère dans la base de données
-                          $insert = $bdd->prepare('INSERT INTO utilisateurs(login,prenom,nom,password) VALUES(:login, :prenom, :nom, :password)');
+                          $insert = $bdd->prepare('INSERT INTO utilisateurs(login,password) VALUES(:login,:password)');
                           $insert->execute(array(
                               'login' => $login,
-                              'prenom' => $firstname,
-                              'nom' => $name,
                               'password' => $password,
                           ));
                           // On redirige avec le message de succès

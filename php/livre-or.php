@@ -1,13 +1,7 @@
-
 <?php 
     session_start();
     require_once 'config.php'; // ajout connexion bdd 
 
-      // si la session existe pas soit si l'on est pas connecté on redirige
-      if(!isset($_SESSION['user'])){
-        header('Location:../index.php');
-        die();
-       }
 
      // On récupere les données de l'utilisateur
      $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ?');
@@ -20,9 +14,10 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/livre-or.css">
 </head>
 
+<body>
 
 <!-- HEADER -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,60 +28,55 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index_co.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href=<?php if(isset($_SESSION['user'])){echo "index_co.php";}else{echo "../index.php";} ?>>Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="profil.php">Profil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="livre-or.php">Livre d'or</a>
+        <a class="nav-link" href="commentaire.php">Commenter !</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="deconnexion.php">Deconnexion</a>
-      </li>
+      <?php 
+      if($data['login']== 'admin'){ echo "<li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"admin.php\">Admin</a>
+      </li>" ;}
+      if(isset($_SESSION['user'])){
+       echo "<li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"deconnexion.php\">Deconnexion</a>
+      </li>";
+      }
+      else{echo  "<li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"connexion.php\">Connexion</a>
+      </li> 
+      <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"inscription.php\">Inscription</a>
+      </li>";}
+    ?>
     </ul>
     <span class="navbar-text">
-    <?php echo $data['login'];?>
+     <?php $data['login'] ?>
     </span>
   </div>
 </nav>  
 
-<body>
 
-        <!-- CONNECTION ET SELECTION DE LA DB-->
+        <!--SELECTION DE LA DB-->
     <?php
-        session_start();
-        require_once 'config.php'; // ajout connexion bdd 
 
         // On récupere les données de l'utilisateur
-        $req = $bdd->query('SELECT * FROM utilisateurs ');
+        $req = $bdd->query('SELECT commentaires.commentaire,utilisateurs.login,commentaires.date FROM commentaires LEFT JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id');
+
+
     ?>
 
-        <!-- CREATION DU TABLEAU -->
+    <main>
 
-        <table>
-            <!-- entete du tableau -->
-    <thead>
-    <tr> 
-        <th scope="col">id</th>
-        <th scope="col">login</th>
-        <th scope="col">password</th>
-    </tr>
-    </thead>
-            <!-- corps du tableau -->
-    <tbody>
-        <?php
+    <?php
             while ($donnees = $req->fetch())
             {
-                //On affiche l'id et le nom du client en cours
-                echo "</TR>";
-                echo "<TH> $donnees[id] </TH>";
-                echo "<TH> $donnees[login] </TH>";
-                echo "<TH> $donnees[password] </TH>";
-                echo "</TR>";
+                //On affiche les commentaires des utilisateurs 
+                echo "<ul><li class=\"him\">".$donnees['login']." LE ".$donnees['date']."</li><li class= \"me\">".$donnees['commentaire']."</li>";
             }
         ?>  
-    </tbody>    
-    </table>
-    
-    </body>
+
+    </main>

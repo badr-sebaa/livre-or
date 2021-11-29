@@ -67,14 +67,6 @@
         </div>
 
         <div class="champs">
-        <input type="text" name="firstname"  placeholder="FirstName" required="required" autocomplete="off">
-        </div>
-
-        <div class="champs">
-        <input type="text" name="name"  placeholder="Name" required="required" autocomplete="off">
-        </div>
-
-        <div class="champs">
         <input type="password" name="password"  placeholder="Password" required="required" autocomplete="off">
         </div>
         
