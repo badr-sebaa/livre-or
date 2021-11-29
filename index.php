@@ -40,7 +40,7 @@
     
         <h2 id="titre_con"> INSCRIVEZ VOUS OU CONNECTEZ VOUS ! </h2>
         <img src="img/profil_type.png" class="profil" width= "25%" height= "auto" >
-        <p class="com">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos nostrum, officia natus </br>eaque cum esse aspernatur autem quisquam fugiat temporibus necessitatibus molestiae</br> tempora qui libero veniam obcaecati voluptatum numquam ipsam velit laborum culpa fugit </br>consectetur distinctio? Cum officia, consequuntur, maiores incidunt ut expedita vel</br> enim fuga ad culpa placeat nam quis saepe. Odio fugit inventore quasi blanditiis itaque odit deleniti </br>a dignissimos dicta est, possimus quia molestiae sapiente, facilis</br>saepe laborum Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ab ex ducimus animi rem</br>, reprehenderit eaque beatae distinctio assumenda mollitia.</br></p>       
+        <p id="com">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos nostrum, officia natus </br>eaque cum esse aspernatur autem quisquam fugiat temporibus necessitatibus molestiae</br> tempora qui libero veniam obcaecati voluptatum numquam ipsam velit laborum culpa fugit </br>consectetur distinctio? Cum officia, consequuntur, maiores incidunt ut expedita vel</br> enim fuga ad culpa placeat nam quis saepe. Odio fugit inventore quasi blanditiis itaque odit deleniti </br>a dignissimos dicta est, possimus quia molestiae sapiente, facilis</br>saepe laborum Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ab ex ducimus animi rem</br>, reprehenderit eaque beatae distinctio assumenda mollitia.</br></p>       
     </main>
     <!-- Footer -->
     <footer>
